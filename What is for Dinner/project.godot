@@ -11,7 +11,9 @@ config_version=4
 [application]
 
 config/name="What is for Dinner"
-config/icon="res://icon.png"
+run/main_scene="res://Source/Main.tscn"
+boot_splash/image="res://Assets/SplashScreen/ggj2-splash.png"
+config/icon="res://Assets/SplashScreen/ggj2-splash.png"
 
 [physics]
 
