@@ -1,0 +1,209 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Source/Theme/main.theme" type="Theme" id=1]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_right = 540.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btns" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 24.0
+margin_right = -24.0
+margin_bottom = -24.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Btns"]
+margin_right = 492.0
+margin_bottom = 1122.0
+
+[node name="ContinueBtn" type="Button" parent="Btns/VBoxContainer"]
+margin_right = 492.0
+margin_bottom = 277.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "CONTINUE"
+flat = true
+align = 0
+
+[node name="FlavorText" type="HBoxContainer" parent="Btns/VBoxContainer/ContinueBtn"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 20.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="Btns/VBoxContainer/ContinueBtn/FlavorText"]
+margin_right = 449.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = " Resume making your decision"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="Btns/VBoxContainer/ContinueBtn/FlavorText"]
+margin_left = 453.0
+margin_right = 492.0
+margin_bottom = 31.0
+theme = ExtResource( 1 )
+text = "$24"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartBtn" type="Button" parent="Btns/VBoxContainer"]
+margin_top = 281.0
+margin_right = 492.0
+margin_bottom = 559.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "RESTART"
+flat = true
+align = 0
+
+[node name="FlavorText" type="HBoxContainer" parent="Btns/VBoxContainer/RestartBtn"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 20.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="Btns/VBoxContainer/RestartBtn/FlavorText"]
+margin_right = 447.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = " Return to the beginning"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="Btns/VBoxContainer/RestartBtn/FlavorText"]
+margin_left = 451.0
+margin_right = 492.0
+margin_bottom = 31.0
+theme = ExtResource( 1 )
+text = "$20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartBtn2" type="Button" parent="Btns/VBoxContainer"]
+margin_top = 563.0
+margin_right = 492.0
+margin_bottom = 840.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "OPTIONS"
+flat = true
+align = 0
+
+[node name="FlavorText" type="HBoxContainer" parent="Btns/VBoxContainer/RestartBtn2"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 20.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="Btns/VBoxContainer/RestartBtn2/FlavorText"]
+margin_right = 462.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = " Handpick your dining experience"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="Btns/VBoxContainer/RestartBtn2/FlavorText"]
+margin_left = 466.0
+margin_right = 492.0
+margin_bottom = 31.0
+theme = ExtResource( 1 )
+text = "$8"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitBtn" type="Button" parent="Btns/VBoxContainer"]
+margin_top = 844.0
+margin_right = 492.0
+margin_bottom = 1122.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "QUIT"
+flat = true
+align = 0
+
+[node name="FlavorText" type="HBoxContainer" parent="Btns/VBoxContainer/QuitBtn"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 20.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="Btns/VBoxContainer/QuitBtn/FlavorText"]
+margin_right = 446.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = " Walk out with no regard"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="Btns/VBoxContainer/QuitBtn/FlavorText"]
+margin_left = 450.0
+margin_right = 492.0
+margin_bottom = 31.0
+theme = ExtResource( 1 )
+text = "$99"
+__meta__ = {
+"_edit_use_anchors_": false
+}

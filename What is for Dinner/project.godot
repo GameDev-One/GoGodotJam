@@ -20,6 +20,7 @@ config/icon="res://Assets/SplashScreen/ggj2-splash.png"
 window/size/width=540
 window/size/height=1170
 window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
 [physics]
