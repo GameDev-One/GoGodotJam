@@ -1,0 +1,190 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Source/Theme/Main.theme" type="Theme" id=1]
+[ext_resource path="res://Source/Menu/Options.gd" type="Script" id=2]
+[ext_resource path="res://Source/SceneTransition/SceneTransition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Source/Theme/ButtonFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Theme/Panel.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Theme/PanelSelected.png" type="Texture" id=6]
+
+[node name="Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_right = 540.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Options"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btns" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 24.0
+margin_right = -24.0
+margin_bottom = -24.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Btns"]
+margin_right = 492.0
+margin_bottom = 1122.0
+
+[node name="GameDurationLabel" type="Label" parent="Btns/VBoxContainer"]
+margin_right = 492.0
+margin_bottom = 277.0
+size_flags_vertical = 7
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Game Duration"
+valign = 1
+
+[node name="GameDurationOpt" type="HBoxContainer" parent="Btns/VBoxContainer"]
+margin_top = 281.0
+margin_right = 492.0
+margin_bottom = 559.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt1" type="TextureButton" parent="Btns/VBoxContainer/GameDurationOpt"]
+margin_right = 120.0
+margin_bottom = 278.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Btns/VBoxContainer/GameDurationOpt/Opt1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "15s"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt2" type="TextureButton" parent="Btns/VBoxContainer/GameDurationOpt"]
+margin_left = 124.0
+margin_right = 244.0
+margin_bottom = 278.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Btns/VBoxContainer/GameDurationOpt/Opt2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "30s"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt3" type="TextureButton" parent="Btns/VBoxContainer/GameDurationOpt"]
+margin_left = 248.0
+margin_right = 368.0
+margin_bottom = 278.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Btns/VBoxContainer/GameDurationOpt/Opt3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "1m"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt4" type="TextureButton" parent="Btns/VBoxContainer/GameDurationOpt"]
+margin_left = 372.0
+margin_right = 492.0
+margin_bottom = 278.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Btns/VBoxContainer/GameDurationOpt/Opt4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "2m"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MasterVolumeLabel" type="Label" parent="Btns/VBoxContainer"]
+margin_top = 563.0
+margin_right = 492.0
+margin_bottom = 840.0
+size_flags_vertical = 7
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Master Volume"
+valign = 1
+
+[node name="MasterVoumeSlider" type="HSlider" parent="Btns/VBoxContainer"]
+margin_top = 844.0
+margin_right = 492.0
+margin_bottom = 1122.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+step = 2.0
+value = 50.0
+tick_count = 3
+ticks_on_borders = true
+
+[node name="SceneTransition" parent="." instance=ExtResource( 3 )]
+visible = false
+mouse_filter = 2
+
+[connection signal="toggled" from="Btns/VBoxContainer/GameDurationOpt/Opt1" to="." method="_on_Opt1_toggled"]
+[connection signal="toggled" from="Btns/VBoxContainer/GameDurationOpt/Opt2" to="." method="_on_Opt2_toggled"]
+[connection signal="toggled" from="Btns/VBoxContainer/GameDurationOpt/Opt3" to="." method="_on_Opt3_toggled"]
+[connection signal="toggled" from="Btns/VBoxContainer/GameDurationOpt/Opt4" to="." method="_on_Opt4_toggled"]
