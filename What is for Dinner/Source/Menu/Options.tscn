@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Source/Theme/Main.theme" type="Theme" id=1]
 [ext_resource path="res://Source/Menu/Options.gd" type="Script" id=2]
-[ext_resource path="res://Source/SceneTransition/SceneTransition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Source/Menu/List.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Source/Theme/ButtonFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Theme/Panel.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Theme/PanelSelected.png" type="Texture" id=6]
@@ -10,6 +10,7 @@
 [node name="Options" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -54,7 +55,7 @@ margin_bottom = 1122.0
 
 [node name="GameDurationLabel" type="Label" parent="Btns/VBoxContainer"]
 margin_right = 492.0
-margin_bottom = 277.0
+margin_bottom = 183.0
 size_flags_vertical = 7
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -63,9 +64,9 @@ text = "Game Duration"
 valign = 1
 
 [node name="GameDurationOpt" type="HBoxContainer" parent="Btns/VBoxContainer"]
-margin_top = 281.0
+margin_top = 187.0
 margin_right = 492.0
-margin_bottom = 559.0
+margin_bottom = 371.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -73,10 +74,11 @@ __meta__ = {
 
 [node name="Opt1" type="TextureButton" parent="Btns/VBoxContainer/GameDurationOpt"]
 margin_right = 120.0
-margin_bottom = 278.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 toggle_mode = true
+pressed = true
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 expand = true
@@ -95,7 +97,7 @@ __meta__ = {
 [node name="Opt2" type="TextureButton" parent="Btns/VBoxContainer/GameDurationOpt"]
 margin_left = 124.0
 margin_right = 244.0
-margin_bottom = 278.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 toggle_mode = true
@@ -117,7 +119,7 @@ __meta__ = {
 [node name="Opt3" type="TextureButton" parent="Btns/VBoxContainer/GameDurationOpt"]
 margin_left = 248.0
 margin_right = 368.0
-margin_bottom = 278.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 toggle_mode = true
@@ -139,7 +141,7 @@ __meta__ = {
 [node name="Opt4" type="TextureButton" parent="Btns/VBoxContainer/GameDurationOpt"]
 margin_left = 372.0
 margin_right = 492.0
-margin_bottom = 278.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 toggle_mode = true
@@ -158,10 +160,67 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MasterVolumeLabel" type="Label" parent="Btns/VBoxContainer"]
+[node name="List" type="Label" parent="Btns/VBoxContainer"]
+margin_top = 375.0
+margin_right = 492.0
+margin_bottom = 559.0
+size_flags_vertical = 7
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Restaurant List"
+valign = 1
+
+[node name="ListOpt" type="HBoxContainer" parent="Btns/VBoxContainer"]
 margin_top = 563.0
 margin_right = 492.0
-margin_bottom = 840.0
+margin_bottom = 746.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditBtn" type="TextureButton" parent="Btns/VBoxContainer/ListOpt"]
+margin_right = 244.0
+margin_bottom = 183.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Btns/VBoxContainer/ListOpt/EditBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "EDIT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClearBtn" type="TextureButton" parent="Btns/VBoxContainer/ListOpt"]
+margin_left = 248.0
+margin_right = 492.0
+margin_bottom = 183.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Btns/VBoxContainer/ListOpt/ClearBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "CLEAR"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MasterVolumeLabel" type="Label" parent="Btns/VBoxContainer"]
+margin_top = 750.0
+margin_right = 492.0
+margin_bottom = 934.0
 size_flags_vertical = 7
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -170,7 +229,7 @@ text = "Master Volume"
 valign = 1
 
 [node name="MasterVoumeSlider" type="HSlider" parent="Btns/VBoxContainer"]
-margin_top = 844.0
+margin_top = 938.0
 margin_right = 492.0
 margin_bottom = 1122.0
 size_flags_vertical = 3
@@ -180,11 +239,37 @@ value = 50.0
 tick_count = 3
 ticks_on_borders = true
 
-[node name="SceneTransition" parent="." instance=ExtResource( 3 )]
+[node name="BackBtn" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -110.0
+margin_top = 10.0
+margin_right = -20.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="BackBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="BackBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Menu"
+align = 1
+valign = 1
+
+[node name="List" parent="." instance=ExtResource( 3 )]
 visible = false
-mouse_filter = 2
 
 [connection signal="toggled" from="Btns/VBoxContainer/GameDurationOpt/Opt1" to="." method="_on_Opt1_toggled"]
 [connection signal="toggled" from="Btns/VBoxContainer/GameDurationOpt/Opt2" to="." method="_on_Opt2_toggled"]
 [connection signal="toggled" from="Btns/VBoxContainer/GameDurationOpt/Opt3" to="." method="_on_Opt3_toggled"]
 [connection signal="toggled" from="Btns/VBoxContainer/GameDurationOpt/Opt4" to="." method="_on_Opt4_toggled"]
+[connection signal="pressed" from="Btns/VBoxContainer/ListOpt/EditBtn" to="." method="_on_EditBtn_pressed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]

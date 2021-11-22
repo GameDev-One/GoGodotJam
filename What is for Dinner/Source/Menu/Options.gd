@@ -2,6 +2,7 @@ extends Control
 
 onready var GameDurationOpts: Array = $Btns/VBoxContainer/GameDurationOpt.get_children()
 onready var MasterVolumeSlider: HSlider = $Btns/VBoxContainer/MasterVoumeSlider
+onready var ListPanel: Control = $List
 
 var MasterVolume: float = 50 setget set_volume, get_volume
 var GameDuration: float = 15
@@ -44,3 +45,11 @@ func _on_Opt4_toggled(button_pressed):
 		GameDurationOpts[1].pressed = false
 		GameDurationOpts[2].pressed = false
 		GameDuration = 120
+
+
+func _on_BackBtn_pressed():
+	hide()
+
+
+func _on_EditBtn_pressed():
+	ListPanel.show()

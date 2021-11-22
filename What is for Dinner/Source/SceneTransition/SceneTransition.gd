@@ -13,6 +13,8 @@ func _ready() -> void:
 
 
 func transition_to(_next_scene: String = next_scene_path) -> void:
+	show()
+	
 	# Plays the Fade animation and wait until it finishes
 	_anim_player.play("Fade")
 	yield(_anim_player, "animation_finished")

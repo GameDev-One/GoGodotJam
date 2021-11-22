@@ -1,13 +1,20 @@
 extends Control
 
 onready var SceneTransition: ColorRect = $SceneTransition
+onready var Options: Control = $Options
 
 
 func _on_ContinueBtn_pressed():
-	SceneTransition.transition_to("res://Source/Main.tscn")
-	pass # Replace with function body.
+	hide()
 
 
 func _on_OptionBtn_pressed():
-	SceneTransition.transition_to("res://Source/Menu/Options.tscn")
-	pass # Replace with function body.
+	Options.show()
+
+
+func _on_MenuBtn_pressed():
+	show()
+
+
+func _on_RestartBtn_pressed():
+	SceneTransition.transition_to("res://Source/Main.tscn")
