@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
+Name = "McDonalds"
 Cuisine = 1
 Rating = 2
 Seating = 3

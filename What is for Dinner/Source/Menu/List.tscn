@@ -1,8 +1,170 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Source/Theme/Main.theme" type="Theme" id=1]
 [ext_resource path="res://Source/Menu/List.gd" type="Script" id=2]
 [ext_resource path="res://Source/Theme/ButtonFont.tres" type="DynamicFont" id=4]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Btns/VBoxContainer/GridContainer/CuisineBtn:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Btns/VBoxContainer/GridContainer/RatingBtn:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Btns/VBoxContainer/GridContainer/SeatingBtn:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Btns/VBoxContainer/GridContainer/PriceBtn:custom_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "cuisine_btn_flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Btns/VBoxContainer/GridContainer/CuisineBtn:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "new_item_added_flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Btns/VBoxContainer/GridContainer/CuisineBtn:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Btns/VBoxContainer/GridContainer/RatingBtn:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Btns/VBoxContainer/GridContainer/SeatingBtn:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Btns/VBoxContainer/GridContainer/PriceBtn:custom_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "price_btn_flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Btns/VBoxContainer/GridContainer/PriceBtn:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "rating_btn_flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Btns/VBoxContainer/GridContainer/RatingBtn:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "seating_btn_flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Btns/VBoxContainer/GridContainer/SeatingBtn:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="List" type="Control"]
 anchor_right = 1.0
@@ -67,10 +229,28 @@ margin_right = 492.0
 margin_bottom = 375.0
 size_flags_vertical = 3
 custom_constants/arrow_margin = 28
-text = "Add New (+)"
+text = "Restaurant Name"
 align = 1
-items = [ "Add New (+)", null, false, 0, null ]
-selected = 0
+
+[node name="PopupPanel" type="PopupPanel" parent="Btns/VBoxContainer/RestaurantName"]
+margin_right = 492.0
+margin_bottom = 186.0
+rect_min_size = Vector2( 492, 186 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="Btns/VBoxContainer/RestaurantName/PopupPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 21.0
+margin_top = 21.0
+margin_right = -21.0
+margin_bottom = -21.0
+placeholder_text = "Type New Entry Here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GridContainer" type="GridContainer" parent="Btns/VBoxContainer"]
 margin_top = 379.0
@@ -88,6 +268,7 @@ margin_right = 244.0
 margin_bottom = 369.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/arrow_margin = 8
 text = "Cuisine"
 clip_text = true
@@ -101,6 +282,7 @@ margin_right = 492.0
 margin_bottom = 369.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/arrow_margin = 8
 text = "Rating"
 clip_text = true
@@ -114,6 +296,7 @@ margin_right = 244.0
 margin_bottom = 742.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/arrow_margin = 8
 text = "Location"
 clip_text = true
@@ -128,6 +311,7 @@ margin_right = 492.0
 margin_bottom = 742.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/arrow_margin = 8
 text = "Price"
 clip_text = true
@@ -163,7 +347,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/cuisine_btn_flash = SubResource( 4 )
+anims/new_item_added_flash = SubResource( 3 )
+anims/price_btn_flash = SubResource( 5 )
+anims/rating_btn_flash = SubResource( 6 )
+anims/seating_btn_flash = SubResource( 7 )
+
 [connection signal="item_selected" from="Btns/VBoxContainer/RestaurantName" to="." method="_on_RestaurantName_item_selected"]
+[connection signal="text_entered" from="Btns/VBoxContainer/RestaurantName/PopupPanel/LineEdit" to="." method="_on_LineEdit_text_entered"]
 [connection signal="item_selected" from="Btns/VBoxContainer/GridContainer/CuisineBtn" to="." method="_on_CuisineBtn_item_selected"]
 [connection signal="item_selected" from="Btns/VBoxContainer/GridContainer/RatingBtn" to="." method="_on_RatingBtn_item_selected"]
 [connection signal="item_selected" from="Btns/VBoxContainer/GridContainer/SeatingBtn" to="." method="_on_SeatingBtn_item_selected"]

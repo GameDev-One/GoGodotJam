@@ -45,7 +45,18 @@ enum PriceEnum{
 	Five_Dollar_Signs
 }
 
-export(CuisineEnum) var Cuisine
-export(RatingEnum) var Rating
-export(SeatingEnum) var Seating
-export(PriceEnum) var Price
+export var Name: String = ""
+export var Cuisine: int = CuisineEnum.None
+export var Rating: int = RatingEnum.No_Stars
+export var Seating: int = SeatingEnum.None
+export var Price: int = PriceEnum.No_Dollar_Sign
+
+
+static func load_from_file(file_path: String) -> Restaurant_Item:
+	var res 
+	if file_path.get_extension() == "tres":
+		res = load(file_path)
+	return res
+	
+static func save_to_file(file_path: String, resource: Restaurant_Item) -> int:
+	return ResourceSaver.save(file_path + resource.Name + ".tres", resource)
