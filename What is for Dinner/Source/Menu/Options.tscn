@@ -217,6 +217,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Confirmation" type="ConfirmationDialog" parent="Btns/VBoxContainer/ListOpt/ClearBtn"]
+visible = true
+margin_left = -121.0
+margin_top = -159.0
+margin_right = 120.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 330, 70 )
+popup_exclusive = true
+window_title = ""
+resizable = true
+dialog_text = "Clearing the Restaurant List will erase all of your data.
+
+Are you sure?"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MasterVolumeLabel" type="Label" parent="Btns/VBoxContainer"]
 margin_top = 750.0
 margin_right = 492.0
@@ -272,4 +290,6 @@ visible = false
 [connection signal="toggled" from="Btns/VBoxContainer/GameDurationOpt/Opt3" to="." method="_on_Opt3_toggled"]
 [connection signal="toggled" from="Btns/VBoxContainer/GameDurationOpt/Opt4" to="." method="_on_Opt4_toggled"]
 [connection signal="pressed" from="Btns/VBoxContainer/ListOpt/EditBtn" to="." method="_on_EditBtn_pressed"]
+[connection signal="pressed" from="Btns/VBoxContainer/ListOpt/ClearBtn" to="." method="_on_ClearBtn_pressed"]
+[connection signal="confirmed" from="Btns/VBoxContainer/ListOpt/ClearBtn/Confirmation" to="." method="_on_Confirmation_confirmed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]

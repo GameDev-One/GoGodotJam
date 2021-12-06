@@ -1,0 +1,221 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Source/Theme/Main.theme" type="Theme" id=1]
+[ext_resource path="res://Source/Theme/ButtonFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Source/Menu/GameOver.gd" type="Script" id=3]
+[ext_resource path="res://Source/SceneTransition/SceneTransition.tscn" type="PackedScene" id=4]
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 0, 120 )
+text = "Game Over"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 24.0
+margin_right = -24.0
+margin_bottom = -24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_right = 492.0
+margin_bottom = 1122.0
+alignment = 1
+
+[node name="Result" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 492.0
+margin_bottom = 900.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="SubTitle1" type="Label" parent="CenterContainer/VBoxContainer/Result"]
+margin_top = 384.0
+margin_right = 492.0
+margin_bottom = 415.0
+text = "Serving Up"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Result"]
+margin_top = 419.0
+margin_right = 492.0
+margin_bottom = 481.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Nothing"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubTitle2" type="Label" parent="CenterContainer/VBoxContainer/Result"]
+margin_top = 485.0
+margin_right = 492.0
+margin_bottom = 516.0
+text = "For Dinner"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OrbsCollected" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 904.0
+margin_right = 492.0
+margin_bottom = 935.0
+text = "Total Orbs Collected"
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/OrbsCollected"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -15.5
+margin_bottom = 15.5
+grow_horizontal = 0
+rect_min_size = Vector2( 50, 0 )
+text = "0.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CuisineAvg" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 939.0
+margin_right = 492.0
+margin_bottom = 970.0
+text = "         Cuisine Avg"
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CuisineAvg"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -15.5
+margin_bottom = 15.5
+grow_horizontal = 0
+rect_min_size = Vector2( 50, 0 )
+text = "0.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RatingAvg" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 974.0
+margin_right = 492.0
+margin_bottom = 1005.0
+text = "         Rating Avg"
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/RatingAvg"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -15.5
+margin_bottom = 15.5
+grow_horizontal = 0
+rect_min_size = Vector2( 50, 0 )
+text = "0.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SeatingAvg" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 1009.0
+margin_right = 492.0
+margin_bottom = 1040.0
+text = "         Seating Avg"
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/SeatingAvg"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -15.5
+margin_bottom = 15.5
+grow_horizontal = 0
+rect_min_size = Vector2( 50, 0 )
+text = "0.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PriceAvg" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 1044.0
+margin_right = 492.0
+margin_bottom = 1075.0
+text = "         Price Avg"
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/PriceAvg"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -15.5
+margin_bottom = 15.5
+grow_horizontal = 0
+rect_min_size = Vector2( 50, 0 )
+text = "0.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+margin_top = 1079.0
+margin_right = 492.0
+margin_bottom = 1087.0
+
+[node name="FinalScore" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 1091.0
+margin_right = 492.0
+margin_bottom = 1122.0
+text = "Final Score"
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/FinalScore"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -15.5
+margin_bottom = 15.5
+grow_horizontal = 0
+rect_min_size = Vector2( 50, 0 )
+text = "0.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SceneTransition" parent="." instance=ExtResource( 4 )]
+visible = false

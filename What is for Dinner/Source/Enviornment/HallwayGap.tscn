@@ -1,0 +1,159 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Prototypes/Materials/Orange.tres" type="Material" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0, 0.517647, 0, 1 )
+
+[node name="HallwayGap" type="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176.249, 0.752705, 58.5919 )
+operation = 2
+width = 24.0
+height = 4.0
+depth = 120.0
+material = SubResource( 2 )
+
+[node name="Hallway" type="Spatial" parent="."]
+
+[node name="WallLeft" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.126, 14.5, 0 )
+use_collision = true
+height = 30.0
+depth = 120.0
+material = ExtResource( 1 )
+
+[node name="WallRight" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1663, 14.5, 0 )
+use_collision = true
+height = 30.0
+depth = 120.0
+material = ExtResource( 1 )
+
+[node name="WallBack" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0805664, 14.5, -112.284 )
+use_collision = true
+width = 80.0
+height = 30.0
+material = ExtResource( 1 )
+
+[node name="Ramp" type="CSGBox" parent="Hallway/WallBack"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0805664, 10.2297, 5.31873 )
+width = 20.0
+height = 10.0
+
+[node name="Ramp2" type="CSGBox" parent="Hallway/WallBack"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0805664, 13.8476, -9.42334 )
+width = 20.0
+height = 20.0
+
+[node name="WallBackRight" type="CSGBox" parent="Hallway"]
+transform = Transform( -0.687848, 0, -0.725855, 0, 1, 0, 0.725855, 0, -0.687848, 23.2105, 14.5, -70.1678 )
+use_collision = true
+width = 30.0
+height = 30.0
+material = ExtResource( 1 )
+
+[node name="WallBackRight2" type="CSGBox" parent="Hallway"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.5021, 14.5, -96.5205 )
+use_collision = true
+width = 30.0
+height = 30.0
+material = ExtResource( 1 )
+
+[node name="WallBackLeft" type="CSGBox" parent="Hallway"]
+transform = Transform( -0.687848, 0, 0.725855, 0, 1, 0, -0.725855, 0, -0.687848, -23.1309, 14.5, -70.1678 )
+use_collision = true
+width = 30.0
+height = 30.0
+material = ExtResource( 1 )
+
+[node name="WallBackLeft2" type="CSGBox" parent="Hallway"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -33.5947, 14.5, -96.5205 )
+use_collision = true
+width = 30.0
+height = 30.0
+material = ExtResource( 1 )
+
+[node name="HallwayPlatform" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 54 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform2" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61186, 0, 29.6724 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform3" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66167, 0, 8.38388 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform4" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3094, 0, -14.3816 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform5" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69875, 0, -33.8391 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform6" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.790314, 0, -56.5022 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform7" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8179, 2.67969, -107.051 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform8" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1146, 7.11228, -107.051 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform9" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52858, 7.11228, -107.051 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform10" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.10994, 10.1966, -90.3744 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform11" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5784, 11.535, -90.3744 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform12" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.903, 11.535, -90.3744 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform13" type="CSGBox" parent="Hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.903, 15.773, -106.279 )
+use_collision = true
+width = 8.0
+depth = 8.0
+
+[node name="HallwayPlatform14" type="CSGBox" parent="Hallway"]
+transform = Transform( 0.911977, 0.410241, 0, -0.410241, 0.911977, 0, 0, 0, 1, 17.4092, 20.6787, -106.279 )
+use_collision = true
+width = 8.0
+depth = 8.0

@@ -1,299 +1,333 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Source/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Prototypes/Materials/Black.tres" type="Material" id=2]
-[ext_resource path="res://Assets/Prototypes/Materials/Orange.tres" type="Material" id=3]
-[ext_resource path="res://Source/Orbs/FoodThoughtOrbs.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Source/Enviornment/SpawnPoint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Source/Enviornment/Maze.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Source/Menu/GameOver.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Source/Enviornment/OutofBounds.gd" type="Script" id=5]
-[ext_resource path="res://Source/Enviornment/Fridge.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Source/Main.gd" type="Script" id=6]
 [ext_resource path="res://Source/Menu/Menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Source/Theme/Main.theme" type="Theme" id=8]
+[ext_resource path="res://3rdPartyAddons/Virtual Joystick/joystick/virtual_joystick.tscn" type="PackedScene" id=9]
+[ext_resource path="res://3rdPartyAddons/Virtual Joystick/joystick/textures/joystick_tip.png" type="Texture" id=10]
+[ext_resource path="res://Source/Menu/TimeLeft.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Source/Menu/OrbsCollected.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Source/Theme/ButtonFont.tres" type="DynamicFont" id=13]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="Animation" id=1]
+resource_name = "Cutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI/Tutorial/MarginContainer/VBoxContainer/Time:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "9", "8", "7", "6", "5", "4", "3", "2", "1", "START" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("UI/Tutorial/MarginContainer/VBoxContainer/Text:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4, 6, 8, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 142 ), Vector2( 0, 182 ), Vector2( 0, 102 ), Vector2( 0, 182 ), Vector2( 0, 102 ), Vector2( 0, 142 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("UI/Tutorial/MarginContainer/VBoxContainer/Time:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 8, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI/Tutorial/MarginContainer/VBoxContainer/Time:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "10" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("UI/Tutorial/MarginContainer/VBoxContainer/Text:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 142 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("UI/Tutorial/MarginContainer/VBoxContainer/Time:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.517647, 0, 1 ) ]
+}
+
+[sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0, 0.517647, 0, 1 )
 
-[sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0, 0.517647, 0, 1 )
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 100, 10, 100 )
 
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 600, 20, 600 )
+[sub_resource type="CircleShape2D" id=5]
+radius = 58.0
 
 [node name="Main" type="Node"]
+script = ExtResource( 6 )
+
+[node name="Cutscene" type="Node" parent="."]
+
+[node name="Camera" type="Camera" parent="Cutscene"]
+transform = Transform( 1, 0, 0, 0, 0.701407, 0.712761, 0, -0.712761, 0.701407, 0, 0, 0 )
+
+[node name="UI" type="CanvasLayer" parent="Cutscene"]
+layer = 2
+
+[node name="Tutorial" type="Control" parent="Cutscene/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="Cutscene/UI/Tutorial"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Cutscene/UI/Tutorial"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 148.0
+margin_right = -24.0
+margin_bottom = -324.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cutscene/UI/Tutorial/MarginContainer"]
+margin_right = 492.0
+margin_bottom = 698.0
+
+[node name="Time" type="Label" parent="Cutscene/UI/Tutorial/MarginContainer/VBoxContainer"]
+margin_right = 492.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0.517647, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+text = "10"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Text" type="Label" parent="Cutscene/UI/Tutorial/MarginContainer/VBoxContainer"]
+margin_top = 142.0
+margin_right = 492.0
+margin_bottom = 698.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+custom_fonts/font = ExtResource( 13 )
+text = "Collect Food Thoughts within the time limit to determine 
+What's for Dinner!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cutscene"]
+autoplay = "Cutscene"
+anims/Cutscene = SubResource( 1 )
+anims/RESET = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.765205, 7.13123, 129.149 )
-Speed = 30.0
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+Speed = 15.0
 Gravity = -80.0
 JumpPower = 30.0
 
+[node name="Camera" type="Camera" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 0.701407, 0.712761, 0, -0.712761, 0.701407, 0, 13.0984, 7.548 )
+current = true
+
 [node name="Platform" type="CSGBox" parent="."]
 use_collision = true
-width = 500.0
+width = 20.0
 height = 1.0
-depth = 300.0
-material = SubResource( 1 )
+depth = 20.0
+material = SubResource( 3 )
 
-[node name="HallwayGap" type="CSGBox" parent="Platform"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176.249, 0.752705, 58.5919 )
-operation = 2
-width = 24.0
-height = 4.0
-depth = 120.0
-material = SubResource( 2 )
+[node name="Maze" parent="Platform" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5, 0, -56.5 )
 
-[node name="Hallway" type="Spatial" parent="Platform/HallwayGap"]
+[node name="SpawnPoints" type="Spatial" parent="Platform/Maze"]
 
-[node name="WallLeft" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.126, 14.5, 0 )
-use_collision = true
-height = 30.0
-depth = 120.0
-material = ExtResource( 3 )
+[node name="SpawnPoint" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, 45 )
 
-[node name="WallRight" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1663, 14.5, 0 )
-use_collision = true
-height = 30.0
-depth = 120.0
-material = ExtResource( 3 )
+[node name="SpawnPoint2" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, 27 )
 
-[node name="WallBack" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0805664, 14.5, -112.284 )
-use_collision = true
-width = 80.0
-height = 30.0
-material = ExtResource( 3 )
+[node name="SpawnPoint3" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, 9 )
 
-[node name="Ramp" type="CSGBox" parent="Platform/HallwayGap/Hallway/WallBack"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0805664, 10.2297, 5.31873 )
-width = 20.0
-height = 10.0
+[node name="SpawnPoint4" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, -9 )
 
-[node name="Ramp2" type="CSGBox" parent="Platform/HallwayGap/Hallway/WallBack"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0805664, 13.8476, -9.42334 )
-width = 20.0
-height = 20.0
+[node name="SpawnPoint5" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, -27 )
 
-[node name="WallBackRight" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( -0.687848, 0, -0.725855, 0, 1, 0, 0.725855, 0, -0.687848, 23.2105, 14.5, -70.1678 )
-use_collision = true
-width = 30.0
-height = 30.0
-material = ExtResource( 3 )
+[node name="SpawnPoint6" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, -45 )
 
-[node name="WallBackRight2" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.5021, 14.5, -96.5205 )
-use_collision = true
-width = 30.0
-height = 30.0
-material = ExtResource( 3 )
+[node name="SpawnPoint13" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, 45 )
 
-[node name="WallBackLeft" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( -0.687848, 0, 0.725855, 0, 1, 0, -0.725855, 0, -0.687848, -23.1309, 14.5, -70.1678 )
-use_collision = true
-width = 30.0
-height = 30.0
-material = ExtResource( 3 )
+[node name="SpawnPoint14" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, 27 )
 
-[node name="WallBackLeft2" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -33.5947, 14.5, -96.5205 )
-use_collision = true
-width = 30.0
-height = 30.0
-material = ExtResource( 3 )
+[node name="SpawnPoint15" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, 9 )
 
-[node name="HallwayPlatform" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 54 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint16" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, -9 )
 
-[node name="HallwayPlatform2" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61186, 0, 29.6724 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint17" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, -27 )
 
-[node name="HallwayPlatform3" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66167, 0, 8.38388 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint18" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, -45 )
 
-[node name="HallwayPlatform4" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3094, 0, -14.3816 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint7" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 45 )
 
-[node name="HallwayPlatform5" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69875, 0, -33.8391 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint8" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 27 )
 
-[node name="HallwayPlatform6" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.790314, 0, -56.5022 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint9" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 9 )
 
-[node name="HallwayPlatform7" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8179, 2.67969, -107.051 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint10" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -9 )
 
-[node name="HallwayPlatform8" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1146, 7.11228, -107.051 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint11" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -27 )
 
-[node name="HallwayPlatform9" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52858, 7.11228, -107.051 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint12" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -45 )
 
-[node name="HallwayPlatform10" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.10994, 10.1966, -90.3744 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint19" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 45 )
 
-[node name="HallwayPlatform11" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5784, 11.535, -90.3744 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint20" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 27 )
 
-[node name="HallwayPlatform12" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.903, 11.535, -90.3744 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint21" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 9 )
 
-[node name="HallwayPlatform13" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.903, 15.773, -106.279 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint22" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -9 )
 
-[node name="HallwayPlatform14" type="CSGBox" parent="Platform/HallwayGap/Hallway"]
-transform = Transform( 0.911977, 0.410241, 0, -0.410241, 0.911977, 0, 0, 0, 1, 17.4092, 20.6787, -106.279 )
-use_collision = true
-width = 8.0
-depth = 8.0
+[node name="SpawnPoint23" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -27 )
+
+[node name="SpawnPoint24" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -45 )
+
+[node name="SpawnPoint25" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, 45 )
+
+[node name="SpawnPoint26" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, 27 )
+
+[node name="SpawnPoint27" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, 9 )
+
+[node name="SpawnPoint28" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, -9 )
+
+[node name="SpawnPoint29" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, -27 )
+
+[node name="SpawnPoint30" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, -45 )
+
+[node name="SpawnPoint31" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, 45 )
+
+[node name="SpawnPoint32" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, 27 )
+
+[node name="SpawnPoint33" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, 9 )
+
+[node name="SpawnPoint34" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, -9 )
+
+[node name="SpawnPoint35" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, -27 )
+
+[node name="SpawnPoint36" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, -45 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.219574, 0.975596, 0, -0.975596, 0.219574, 0, 23.2665, 0 )
 shadow_enabled = true
-
-[node name="Statue" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 39.218 )
-width = 24.0
-height = 48.0
-depth = 12.0
-material = ExtResource( 2 )
-
-[node name="Orbs" type="Spatial" parent="."]
-
-[node name="Orb1" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.31366, 57.5026 )
-
-[node name="Orb2" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -171.591, 3.30621, 89.6262 )
-
-[node name="Orb5" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -180.903, 3.30621, 24.7469 )
-
-[node name="Orb6" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -179.427, 3.30621, -34.3619 )
-
-[node name="Orb7" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -179.346, 13.7659, -31.4798 )
-
-[node name="Orb8" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -193.237, 10.5693, -48.3989 )
-
-[node name="Orb9" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -157.3, 24.6598, -47.6703 )
-
-[node name="Orb10" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -180.992, 33.6217, -68.437 )
-
-[node name="Orb11" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176.361, 33.6217, -68.4338 )
-
-[node name="Orb12" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -171.487, 33.6217, -68.4338 )
-
-[node name="Orb3" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176.226, 3.30621, 135.908 )
-
-[node name="Orb4" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176.226, 3.30621, 135.908 )
-
-[node name="Orb13" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.3975, 3.30621, -74.186 )
-
-[node name="Orb14" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.0218, 3.30621, -132.614 )
-
-[node name="Orb15" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57.6537, 3.30621, -132.614 )
-
-[node name="Orb16" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.452, 3.30621, -134.894 )
-
-[node name="Orb17" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -99.3417, 3.30621, -134.611 )
-
-[node name="Orb21" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -113.313, 3.30621, -134.611 )
-
-[node name="Orb22" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -125.757, 3.30621, -122.93 )
-
-[node name="Orb18" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -147.472, 3.30621, -129.06 )
-
-[node name="Orb23" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -139.181, 3.30621, -129.06 )
-
-[node name="Orb24" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -139.181, 3.30621, -114.007 )
-
-[node name="Orb25" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -145.77, 3.30621, -114.007 )
-
-[node name="Orb19" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -143.575, 3.30621, -132.501 )
-
-[node name="Orb20" parent="Orbs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -143.575, 3.30621, -125.251 )
+directional_shadow_mode = 1
 
 [node name="OutofBounds" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0 )
 script = ExtResource( 5 )
-StartPosition = Vector3( 1, 7, 129 )
+StartPosition = Vector3( 0, 1, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="OutofBounds"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.7266, 0 )
-shape = SubResource( 3 )
-
-[node name="Fridge" parent="." instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -92.6337, 19.2823, -126.607 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, -65, -52 )
+shape = SubResource( 4 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="MenuBtn" type="Button" parent="UI"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -100.0
+margin_left = -125.0
 margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+rect_min_size = Vector2( 125, 100 )
 theme = ExtResource( 8 )
 text = "M"
 flat = true
@@ -316,8 +350,34 @@ text = "Menu"
 align = 1
 valign = 1
 
+[node name="VirtualJoystick" parent="UI" instance=ExtResource( 9 )]
+visible = false
+margin_left = 50.0
+margin_top = -300.0
+margin_right = 250.0
+margin_bottom = -100.0
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_forward"
+action_down = "move_backward"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="UI/VirtualJoystick"]
+position = Vector2( 325, 50 )
+normal = ExtResource( 10 )
+shape = SubResource( 5 )
+
+[node name="TimeLeft" parent="UI" instance=ExtResource( 11 )]
+visible = false
+
+[node name="OrbsCollected" parent="UI" instance=ExtResource( 12 )]
+visible = false
+
+[node name="GameOver" parent="UI" instance=ExtResource( 4 )]
+visible = false
+
 [node name="Menu" parent="UI" instance=ExtResource( 7 )]
 visible = false
 
+[connection signal="animation_finished" from="Cutscene/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="OutofBounds" to="OutofBounds" method="_on_OutofBounds_body_entered"]
 [connection signal="pressed" from="UI/MenuBtn" to="UI/Menu" method="_on_MenuBtn_pressed"]

@@ -53,9 +53,9 @@ export var Price: int = PriceEnum.No_Dollar_Sign
 
 
 static func load_from_file(file_path: String) -> Restaurant_Item:
-	var res 
-	if file_path.get_extension() == "tres":
-		res = load(file_path)
+	var res
+	if file_path.ends_with(".tres"):
+		res = ResourceLoader.load(file_path)
 	return res
 	
 static func save_to_file(file_path: String, resource: Restaurant_Item) -> int:

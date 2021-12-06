@@ -5,6 +5,7 @@ onready var Options: Control = $Options
 
 
 func _on_ContinueBtn_pressed():
+	GlobalSignals.emit_signal("GamePaused", false)
 	hide()
 
 
@@ -13,6 +14,7 @@ func _on_OptionBtn_pressed():
 
 
 func _on_MenuBtn_pressed():
+	GlobalSignals.emit_signal("GamePaused", true)
 	show()
 
 

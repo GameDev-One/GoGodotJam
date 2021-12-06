@@ -1,6 +1,6 @@
 extends Control
 
-const FILE_PATH = "user://"
+const FILE_PATH = "user://Resources/RestaurantItems"
 
 var List : Array = Array()
 
@@ -10,11 +10,11 @@ onready var CuisineBtn: OptionButton = $Btns/VBoxContainer/GridContainer/Cuisine
 onready var RatingBtn: OptionButton = $Btns/VBoxContainer/GridContainer/RatingBtn
 onready var SeatingBtn: OptionButton = $Btns/VBoxContainer/GridContainer/SeatingBtn
 onready var PriceBtn: OptionButton = $Btns/VBoxContainer/GridContainer/PriceBtn
-
 onready var Anim: AnimationPlayer = $AnimationPlayer
 
+
+
 func _ready():
-	# Load files into List
 	Initialize_List()
 	
 	# Update UI
@@ -27,6 +27,8 @@ func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		Save_List()
 	elif what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+		Save_List()
+	elif what == NOTIFICATION_EXIT_TREE:
 		Save_List()
 
 
@@ -58,17 +60,43 @@ func _on_PriceBtn_item_selected(index):
 	Anim.play("price_btn_flash")
 
 
-func _get_files(path):
-	var files = []
+func _Clear_Directory(path):
+	# Open existing Directory
 	var dir = Directory.new()
 	dir.open(path)
-	dir.list_dir_begin(true)
 	
+	# Delete each file in the directory
+	dir.list_dir_begin(true)
 	var file = dir.get_next()
 	while file != '':
-		files += [path + file]
+		dir.remove(file)
 		file = dir.get_next()
+	
+
+func _get_files(path):
+	# Open new Directory
+	var files = []
+	var dir = Directory.new()
+	var err = dir.open(path)
+	
+	# If open failed, create new directory
+	if err:
+		# Create new directory
+		var fldrerr = dir.make_dir_recursive(path)
+		assert(fldrerr == OK, "Failed to create filepath: %s" % path)
 		
+		# 2nd attempt to open
+		fldrerr = dir.open(path)
+		assert(fldrerr == OK, "Failed to get files from: %s" % path)
+	
+	# Read in the names of each file
+	dir.list_dir_begin(true)
+	var file = dir.get_next()
+	while file != '':
+		files += [path + '/' + file]
+		file = dir.get_next()
+	
+	# Return array of file names
 	return  files
 
 
@@ -83,10 +111,27 @@ func _on_LineEdit_text_entered(new_text):
 func Initialize_List():
 	# Read each file into List if is Restaurant_Item
 	var files = _get_files(FILE_PATH)
-	for i in range(files.size()-1, -1, -1):
-		var resource: Restaurant_Item = Restaurant_Item.load_from_file(files[i])
-		if resource:
-			List.append(resource)
+	
+	# Create default list if none exists
+	if files.empty():
+		var default_item: Restaurant_Item = Restaurant_Item.new()
+		default_item.Name = "McDonalds"
+		default_item.Cuisine = Restaurant_Item.CuisineEnum.American
+		default_item.Rating = Restaurant_Item.RatingEnum.One_Star
+		default_item.Seating = Restaurant_Item.SeatingEnum.Takeout
+		default_item.Price = Restaurant_Item.PriceEnum.One_Dollar_Sign
+		List.append(default_item)
+		Save_List()
+		
+	# Otherwise load List from files
+	else:
+		for i in range(files.size()):
+			var resource: Restaurant_Item = Restaurant_Item.load_from_file(files[i])
+			if resource is Restaurant_Item:
+				List.append(resource)
+				
+	# List has been initialized
+	GlobalSignals.emit_signal("ListIntialized", List)
 
 
 func Clear():
@@ -110,6 +155,8 @@ func Reset_Buttons():
 
 
 func Select_Restaurant(index: int):
+	if List.empty():
+		return
 	if index == RestaurantName.get_item_count() - 1:
 		NewRestaurantPrompt.popup_centered()
 	else:
@@ -121,10 +168,11 @@ func Select_Restaurant(index: int):
 
 
 func Save_List():
+	_Clear_Directory(FILE_PATH)
+	
 	for item in List:
-		var err = Restaurant_Item.save_to_file(FILE_PATH, item)
+		var err = Restaurant_Item.save_to_file(FILE_PATH + "/", item)
 		assert(err == OK, "Failed to save file! File Name: " + item.Name)
-	pass
 
 
 func Add_Restaurant(restaurant_name: String):

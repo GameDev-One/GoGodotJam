@@ -1,15 +1,46 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Source/Orbs/FoodThoughtOrbs.gd" type="Script" id=1]
 
 [sub_resource type="SphereShape" id=1]
-radius = 1.25
+radius = 1.5
 
 [sub_resource type="SphereMesh" id=2]
 
 [sub_resource type="SpatialMaterial" id=3]
 flags_transparent = true
 albedo_color = Color( 0, 0.392157, 1, 0.701961 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Float"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.5, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [node name="FoodThoughtOrbs" type="Area"]
 script = ExtResource( 1 )
@@ -20,5 +51,11 @@ shape = SubResource( 1 )
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Float"
+playback_speed = 0.5
+anims/Float = SubResource( 4 )
+anims/RESET = SubResource( 5 )
 
 [connection signal="body_entered" from="." to="." method="_on_FoodThoughtOrbs_body_entered"]
