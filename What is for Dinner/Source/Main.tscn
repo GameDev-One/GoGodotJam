@@ -177,12 +177,12 @@ anims/RESET = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-Speed = 15.0
-Gravity = -80.0
+Speed = 10.0
+Acceleration = 0.1
 JumpPower = 30.0
 
 [node name="Camera" type="Camera" parent="Player"]
-transform = Transform( 1, 0, 0, 0, 0.701407, 0.712761, 0, -0.712761, 0.701407, 0, 13.0984, 7.548 )
+transform = Transform( 1, 0, 0, 0, 0.803421, 0.595412, 0, -0.595412, 0.803421, 0, 5.14908, 4.32042 )
 current = true
 
 [node name="Platform" type="CSGBox" parent="."]
