@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Source/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Source/Enviornment/SpawnPoint.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Source/Enviornment/Maze.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Source/Enviornment/Platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Audio/Superior_Product_Placement.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Source/Menu/GameOver.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Source/Enviornment/OutofBounds.gd" type="Script" id=5]
 [ext_resource path="res://Source/Main.gd" type="Script" id=6]
@@ -53,6 +53,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.517647, 0, 1 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Player/Camera:translation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.9, 4, 6, 6.5, 8.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.75278e-05, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4, 3 ), Vector3( -25, 18, -10 ), Vector3( -25, 18, -110 ), Vector3( 35, 80, -50 ), Vector3( 35, 80, -50 ), Vector3( 0, 4, 3 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Player/Camera:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.9, 4, 6, 6.5, 8.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 2.08442e-05, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -36.5, 0, 0 ), Vector3( -36.5, -90, 0 ), Vector3( -36.5, -135, 0 ), Vector3( -90, 0, 0 ), Vector3( -90, 0, 0 ), Vector3( -36.5, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -92,9 +116,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 0, 0.517647, 0, 1 ) ]
 }
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0, 0.517647, 0, 1 )
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Player/Camera:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4, 3 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Player/Camera:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -36.5, 0, 0 ) ]
+}
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 100, 10, 100 )
@@ -124,7 +169,7 @@ __meta__ = {
 [node name="Bg" type="ColorRect" parent="Cutscene/UI/Tutorial"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.392157 )
+color = Color( 0, 0, 0, 0.666667 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -146,7 +191,7 @@ margin_bottom = 698.0
 
 [node name="Time" type="Label" parent="Cutscene/UI/Tutorial/MarginContainer/VBoxContainer"]
 margin_right = 492.0
-margin_bottom = 138.0
+margin_bottom = 698.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0.517647, 0, 1 )
@@ -157,6 +202,7 @@ valign = 1
 autowrap = true
 
 [node name="Text" type="Label" parent="Cutscene/UI/Tutorial/MarginContainer/VBoxContainer"]
+visible = false
 margin_top = 142.0
 margin_right = 492.0
 margin_bottom = 698.0
@@ -177,146 +223,26 @@ anims/RESET = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-Speed = 10.0
-Acceleration = 0.1
-JumpPower = 30.0
 
 [node name="Camera" type="Camera" parent="Player"]
-transform = Transform( 1, 0, 0, 0, 0.803421, 0.595412, 0, -0.595412, 0.803421, 0, 5.14908, 4.32042 )
+transform = Transform( 1, 0, 0, 0, 0.803857, 0.594823, 0, -0.594823, 0.803857, 0, 4, 3 )
+keep_aspect = 0
 current = true
+fov = 60.0
 
-[node name="Platform" type="CSGBox" parent="."]
-use_collision = true
-width = 20.0
-height = 1.0
-depth = 20.0
-material = SubResource( 3 )
-
-[node name="Maze" parent="Platform" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5, 0, -56.5 )
-
-[node name="SpawnPoints" type="Spatial" parent="Platform/Maze"]
-
-[node name="SpawnPoint" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, 45 )
-
-[node name="SpawnPoint2" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, 27 )
-
-[node name="SpawnPoint3" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, 9 )
-
-[node name="SpawnPoint4" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, -9 )
-
-[node name="SpawnPoint5" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, -27 )
-
-[node name="SpawnPoint6" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2, -45 )
-
-[node name="SpawnPoint13" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, 45 )
-
-[node name="SpawnPoint14" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, 27 )
-
-[node name="SpawnPoint15" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, 9 )
-
-[node name="SpawnPoint16" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, -9 )
-
-[node name="SpawnPoint17" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, -27 )
-
-[node name="SpawnPoint18" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 2, -45 )
-
-[node name="SpawnPoint7" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 45 )
-
-[node name="SpawnPoint8" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 27 )
-
-[node name="SpawnPoint9" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 9 )
-
-[node name="SpawnPoint10" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -9 )
-
-[node name="SpawnPoint11" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -27 )
-
-[node name="SpawnPoint12" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -45 )
-
-[node name="SpawnPoint19" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 45 )
-
-[node name="SpawnPoint20" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 27 )
-
-[node name="SpawnPoint21" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 9 )
-
-[node name="SpawnPoint22" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -9 )
-
-[node name="SpawnPoint23" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -27 )
-
-[node name="SpawnPoint24" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -45 )
-
-[node name="SpawnPoint25" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, 45 )
-
-[node name="SpawnPoint26" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, 27 )
-
-[node name="SpawnPoint27" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, 9 )
-
-[node name="SpawnPoint28" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, -9 )
-
-[node name="SpawnPoint29" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, -27 )
-
-[node name="SpawnPoint30" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2, -45 )
-
-[node name="SpawnPoint31" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, 45 )
-
-[node name="SpawnPoint32" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, 27 )
-
-[node name="SpawnPoint33" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, 9 )
-
-[node name="SpawnPoint34" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, -9 )
-
-[node name="SpawnPoint35" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, -27 )
-
-[node name="SpawnPoint36" parent="Platform/Maze/SpawnPoints" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 2, -45 )
+[node name="Platform" parent="." instance=ExtResource( 2 )]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.219574, 0.975596, 0, -0.975596, 0.219574, 0, 23.2665, 0 )
+transform = Transform( 1, 0, 0, 0, -0.0871559, 0.996195, 0, -0.996195, -0.0871559, 0, 30, 0 )
 shadow_enabled = true
 directional_shadow_mode = 1
 
 [node name="OutofBounds" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, -20, -50 )
 script = ExtResource( 5 )
 StartPosition = Vector3( 0, 1, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="OutofBounds"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, -65, -52 )
 shape = SubResource( 4 )
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -352,9 +278,11 @@ valign = 1
 
 [node name="VirtualJoystick" parent="UI" instance=ExtResource( 9 )]
 visible = false
-margin_left = 50.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
 margin_top = -300.0
-margin_right = 250.0
+margin_right = 100.0
 margin_bottom = -100.0
 action_left = "move_left"
 action_right = "move_right"
@@ -362,6 +290,7 @@ action_up = "move_forward"
 action_down = "move_backward"
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="UI/VirtualJoystick"]
+visible = false
 position = Vector2( 325, 50 )
 normal = ExtResource( 10 )
 shape = SubResource( 5 )
@@ -377,6 +306,10 @@ visible = false
 
 [node name="Menu" parent="UI" instance=ExtResource( 7 )]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 
 [connection signal="animation_finished" from="Cutscene/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="OutofBounds" to="OutofBounds" method="_on_OutofBounds_body_entered"]

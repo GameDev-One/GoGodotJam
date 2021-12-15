@@ -218,7 +218,6 @@ __meta__ = {
 }
 
 [node name="Confirmation" type="ConfirmationDialog" parent="Btns/VBoxContainer/ListOpt/ClearBtn"]
-visible = true
 margin_left = -121.0
 margin_top = -159.0
 margin_right = 120.0

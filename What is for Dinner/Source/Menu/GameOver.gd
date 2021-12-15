@@ -74,22 +74,13 @@ func UpdateUI():
 	
 	FinalScoreLbl.text = format_str % final_score
 	
-	ResultLbl.text = FindClosestRestaurant(CuisinePtsAvg, 
-											RatingsPtsAvg, 
-											SeatingPtsAvg, 
-											PricePtsAvg)
+	ResultLbl.text = List[randi() % List.size()].Name
 
 
 func _on_List_Initialized(list):
+	pass
 	List = list
 
 
-func FindClosestRestaurant(a, b, c, d) -> String:
-	var dist = MAX_INT
-	var name = ""
-	for item in List:
-		var new_dist = pow(item.Cuisine - a, 2) + pow(item.Rating - b, 2) + pow(item.Seating - c, 2) + pow(item.Price - d, 2)
-		if new_dist < dist:
-			dist = new_dist
-			name = item.Name
-	return name
+func _on_RestartBtn_pressed():
+	SceneTransition.transition_to("res://Source/Main.tscn")

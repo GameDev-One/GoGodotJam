@@ -14,7 +14,14 @@ onready var Anim: AnimationPlayer = $AnimationPlayer
 
 
 
+
+
+
+
 func _ready():
+	pass
+	
+	# Read in files to list if any
 	Initialize_List()
 	
 	# Update UI
@@ -178,4 +185,4 @@ func Save_List():
 func Add_Restaurant(restaurant_name: String):
 	var new_item: Restaurant_Item = Restaurant_Item.new()
 	new_item.Name = restaurant_name
-	List.append(new_item)
+	List.push_back(new_item)

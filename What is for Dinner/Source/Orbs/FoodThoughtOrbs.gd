@@ -1,6 +1,7 @@
 extends Area
 
 onready var Anim: AnimationPlayer = $AnimationPlayer
+onready var Audio: AudioStreamPlayer = $AudioStreamPlayer
 
 var cuisine: int = 0
 var rating: int = 0
@@ -21,4 +22,7 @@ func _ready():
 func _on_FoodThoughtOrbs_body_entered(body):
 	if body is KinematicBody:
 		GlobalSignals.emit_signal("OrbCollected", cuisine, rating, seating, price)
+		Audio.play()
+		Anim.play("FadeOut")
+		yield(Audio, "finished")
 		queue_free()
