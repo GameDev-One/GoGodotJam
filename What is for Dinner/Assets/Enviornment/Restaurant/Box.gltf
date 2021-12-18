@@ -1,0 +1,152 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Box"
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "BeigeMatte.001",
+            "pbrMetallicRoughness" : {}
+        },
+        {
+            "doubleSided" : true,
+            "name" : "WhiteMatte.001",
+            "pbrMetallicRoughness" : {}
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1
+                    },
+                    "indices" : 2,
+                    "material" : 0
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 3,
+                        "NORMAL" : 4
+                    },
+                    "indices" : 5,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 192,
+            "max" : [
+                0.20893007516860962,
+                0.5105686187744141,
+                0.1960463672876358
+            ],
+            "min" : [
+                -0.20893245935440063,
+                0.008295804262161255,
+                -0.17137862741947174
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 192,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5123,
+            "count" : 648,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 24,
+            "max" : [
+                0.10998333245515823,
+                0.24251624941825867,
+                -0.17168068885803223
+            ],
+            "min" : [
+                -0.10998572409152985,
+                0.13288331031799316,
+                -0.1736830621957779
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5123,
+            "count" : 36,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 2304,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2304,
+            "byteOffset" : 2304
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1296,
+            "byteOffset" : 4608
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 5904
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 6192
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72,
+            "byteOffset" : 6480
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 6552,
+            "uri" : "Box.bin"
+        }
+    ]
+}

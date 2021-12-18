@@ -1,0 +1,109 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Sack"
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "sack.001",
+            "pbrMetallicRoughness" : {}
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "CUNurbsPath.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "COLOR_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 3396,
+            "max" : [
+                0.19119533896446228,
+                0.5781282186508179,
+                0.18080826103687286
+            ],
+            "min" : [
+                -0.19453704357147217,
+                -0.0017685805214568973,
+                -0.20492421090602875
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 3396,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5123,
+            "count" : 3396,
+            "normalized" : true,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 20352,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 40752,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 40752,
+            "byteOffset" : 40752
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 27168,
+            "byteOffset" : 81504
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 40704,
+            "byteOffset" : 108672
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 149376,
+            "uri" : "Sack.bin"
+        }
+    ]
+}
