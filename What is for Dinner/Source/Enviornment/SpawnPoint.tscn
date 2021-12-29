@@ -2,5 +2,5 @@
 
 [ext_resource path="res://Source/Enviornment/SpawnPoint.gd" type="Script" id=1]
 
-[node name="SpawnPoint" type="Spatial"]
+[node name="SpawnPoint" type="Position3D"]
 script = ExtResource( 1 )

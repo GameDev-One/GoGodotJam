@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Source/Enviornment/Forest/TileLarge.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Source/Enviornment/Restaurant/Props/SwingDoorLeft.tscn" type="PackedScene" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://Source/Enviornment/Restaurant/Mesh/CookingRack.mesh" type="ArrayMesh" id=17]
 [ext_resource path="res://Source/Enviornment/Restaurant/Props/BoxStacked.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Source/Enviornment/Restaurant/Props/Sack.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Source/Enviornment/SpawnPoint.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Source/Enviornment/Restaurant/Props/ShelfLarge.tscn" type="PackedScene" id=21]
 
 [node name="Platform" type="Spatial"]
 
@@ -485,20 +487,212 @@ material/3 = null
 material/4 = null
 material/5 = null
 
-[node name="BoxStacked" parent="Props" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43225, 0.554181, -40.4359 )
-
-[node name="BoxStacked2" parent="Props" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43225, 0.554181, -42.491 )
-
 [node name="BoxStacked3" parent="Props" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.41977, 0.554181, -42.491 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06977, 0.554181, -42.491 )
 
 [node name="BoxStacked4" parent="Props" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.41977, 0.554181, -40.3683 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31522, 0.554181, -42.4941 )
+
+[node name="BoxStacked10" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.84945, 1.6074, -42.4941 )
+
+[node name="BoxStacked13" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.68874, 1.6074, -42.4941 )
+
+[node name="BoxStacked14" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48801, 1.6074, -42.4941 )
+
+[node name="BoxStacked15" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.265, 2.68054, -42.4941 )
+
+[node name="BoxStacked5" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4633, 0.554181, -42.4941 )
+
+[node name="BoxStacked6" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82116, 0.554181, -42.4941 )
+
+[node name="BoxStacked7" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( -0.00527086, 0, 0.999986, 0, 1, 0, -0.999986, 0, -0.00527086, -6.82271, 0.554181, -46.7444 )
+
+[node name="BoxStacked8" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( -0.00527086, 0, 0.999986, 0, 1, 0, -0.999986, 0, -0.00527086, -5.04219, 0.554181, -46.7538 )
+
+[node name="BoxStacked9" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( -0.00527086, 0, 0.999986, 0, 1, 0, -0.999986, 0, -0.00527086, -0.460518, 0.554181, -41.0471 )
+
+[node name="BoxStacked16" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.75518, 0.554181, -39.3433 )
+
+[node name="BoxStacked17" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.75518, 0.554181, -45.0303 )
+
+[node name="BoxStacked11" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.50258, 0.554181, -40.0642 )
+
+[node name="BoxStacked12" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.50258, 1.65501, -40.5657 )
 
 [node name="Sack" parent="Props" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5956, 0.573306, -42.9182 )
 
 [node name="Sack2" parent="Props" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5956, 0.573306, -41.979 )
+
+[node name="ShelfLarge" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, 7.03206, 0.562314, -38.5208 )
+
+[node name="ShelfLarge2" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, 7.05003, 0.562314, -39.9629 )
+
+[node name="ShelfLarge3" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, 3.11602, 0.562314, -41.475 )
+
+[node name="ShelfLarge4" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, 3.13332, 0.562314, -42.8634 )
+
+[node name="ShelfLarge15" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, 3.13332, 0.562314, -42.8634 )
+
+[node name="ShelfLarge7" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, 3.15073, 0.562314, -44.2607 )
+
+[node name="ShelfLarge8" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, 3.09822, 0.562314, -40.0471 )
+
+[node name="ShelfLarge16" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, -5.81819, 0.562314, -42.8369 )
+
+[node name="ShelfLarge17" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, -5.80089, 0.562314, -44.2252 )
+
+[node name="ShelfLarge18" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, -5.78348, 0.562314, -45.6226 )
+
+[node name="ShelfLarge19" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, -5.83599, 0.562314, -41.409 )
+
+[node name="ShelfLarge9" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, -1.11833, 0.562314, -39.9278 )
+
+[node name="ShelfLarge10" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, -1.13607, 0.562314, -38.5037 )
+
+[node name="ShelfLarge12" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, -1.13607, 0.562314, -41.3319 )
+
+[node name="ShelfLarge13" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, -1.11833, 0.562314, -46.409 )
+
+[node name="ShelfLarge14" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, -1.13607, 0.562314, -44.985 )
+
+[node name="ShelfLarge5" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, 7.11283, 0.562314, -45.0019 )
+
+[node name="ShelfLarge11" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, 7.09489, 0.562314, -43.5621 )
+
+[node name="ShelfLarge6" parent="Props" instance=ExtResource( 21 )]
+transform = Transform( 0.0124613, 0, 0.999922, 0, 1, 0, -0.999922, 0, 0.0124613, 7.131, 0.562314, -46.4601 )
+
+[node name="SpawnPoints" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+
+[node name="SpawnPoint" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55515, 0, -11.4025 )
+
+[node name="SpawnPoint2" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93005, 0, -18.984 )
+
+[node name="SpawnPoint4" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.455, 0, -23.083 )
+
+[node name="SpawnPoint5" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.395, 0, -20.426 )
+
+[node name="SpawnPoint6" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.238, 0, -25.685 )
+
+[node name="SpawnPoint3" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54104, 0, -18.984 )
+
+[node name="SpawnPoint7" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4488, 0, -30.9293 )
+
+[node name="SpawnPoint8" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.56647, 0, -35.2209 )
+
+[node name="SpawnPoint9" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79198, 0, -35.2209 )
+
+[node name="SpawnPoint10" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54895, 0, -28.3663 )
+
+[node name="SpawnPoint11" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08458, 0, -31.678 )
+
+[node name="SpawnPoint12" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38095, 0, -22.097 )
+
+[node name="SpawnPoint13" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38095, 0, -22.097 )
+
+[node name="SpawnPoint14" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3247, 0, -21.293 )
+
+[node name="SpawnPoint15" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6597, 0, -23.437 )
+
+[node name="SpawnPoint16" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6597, 0, -19.388 )
+
+[node name="SpawnPoint17" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7327, 0, -22.8222 )
+
+[node name="SpawnPoint18" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9063, 0, -16.5626 )
+
+[node name="SpawnPoint19" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5474, 0, -16.5626 )
+
+[node name="SpawnPoint20" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1332, 0, -14.7264 )
+
+[node name="SpawnPoint21" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.543, 0, -10.3827 )
+
+[node name="SpawnPoint22" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5995, 0, -10.3827 )
+
+[node name="SpawnPoint23" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3396, 0, -28.4416 )
+
+[node name="SpawnPoint24" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3396, 0, -20.3914 )
+
+[node name="SpawnPoint25" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2593, 0, -30.2549 )
+
+[node name="SpawnPoint29" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1409, 0, -30.2549 )
+
+[node name="SpawnPoint30" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9937, 0, -28.6375 )
+
+[node name="SpawnPoint31" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6629, 0, -28.6375 )
+
+[node name="SpawnPoint33" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.8104, 0, -28.6375 )
+
+[node name="SpawnPoint32" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 0.999392, 0, -0.0348646, 0, 1, 0, 0.0348646, 0, 0.999392, 10.785, 0, -36.2542 )
+
+[node name="SpawnPoint26" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2629, 0, -32.2486 )
+
+[node name="SpawnPoint27" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0985, 0, -34.968 )
+
+[node name="SpawnPoint28" parent="SpawnPoints" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2174, 0, -35.274 )

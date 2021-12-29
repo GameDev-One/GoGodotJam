@@ -2,7 +2,6 @@ extends Spatial
 
 #Array of Spawnable Objects
 const SPAWNABLES = [
-	preload("res://Source/Enviornment/BlockerArm.tscn"),
 	preload("res://Source/Orbs/FoodThoughtOrbs.tscn"),
 	]
 
