@@ -53,7 +53,7 @@ _global_script_class_icons={
 config/name="What is for Dinner"
 run/main_scene="res://Source/Main.tscn"
 boot_splash/image="res://Assets/SplashScreen/ggj2-splash.png"
-config/icon="res://Assets/SplashScreen/ggj2-splash.png"
+config/icon="res://What's_for_Dinner_Logo.png"
 
 [autoload]
 

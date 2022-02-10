@@ -6,3 +6,10 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
+
+# Diffrent build versions of the game
+Build/
+
+# Android build ignore
+android/
+android/build/*
